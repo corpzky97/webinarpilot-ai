@@ -1,8 +1,8 @@
 const json=(res,status,data)=>{res.statusCode=status;res.setHeader('Content-Type','application/json');res.end(JSON.stringify(data));};
 
 async function redis(command){
-  const url=process.env.UPSTASH_REDIS_REST_URL;
-  const token=process.env.UPSTASH_REDIS_REST_TOKEN;
+  const url=process.env.KV_REST_API_URL||process.env.UPSTASH_REDIS_REST_URL;
+  const token=process.env.KV_REST_API_TOKEN||process.env.UPSTASH_REDIS_REST_TOKEN;
   if(!url||!token) throw new Error('DATABASE_NOT_CONFIGURED');
   const r=await fetch(url,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify(command)});
   if(!r.ok) throw new Error(`REDIS_${r.status}`);
