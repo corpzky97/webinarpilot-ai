@@ -1,39 +1,82 @@
 {
   "brand": "PinoyLink Hawaiʻi",
   "tagline": "Your Bridge Between Hawaiʻi and Home",
-  "updated_at": "2026-09-08T11:40:00-10:00",
+  "updated_at": "2026-09-08T13:23:00-10:00",
   "edition_type": "midday",
   "edition_date": "2026-09-08",
   "status": "live",
   "lead": {
     "desk": "Hawaiʻi",
-    "headline": "Lowell impacts continue across Hawaiʻi",
-    "summary": "Tropical-storm conditions, flooding and dangerous surf remain concerns in parts of Hawaiʻi. Readers should continue following official emergency and weather guidance.",
-    "why_it_matters": "Travel, commuting, coastal activity and outdoor plans may still be affected.",
-    "source_name": "National Weather Service",
-    "source_url": "https://forecast.weather.gov/"
+    "headline": "Lowell impacts continue across Hawaiʻi as storm moves away",
+    "summary": "Hurricane Lowell is moving away from the islands, but dangerous surf, heavy rain and strong winds remain concerns across parts of Hawaiʻi through Tuesday.",
+    "why_it_matters": "Oʻahu commuters, coastal communities, travelers and families should continue checking official weather and emergency guidance before heading out.",
+    "source_name": "National Weather Service Honolulu",
+    "source_url": "https://www.weather.gov/hfo/",
+    "slug": "lowell-impacts-hawaii-september-8-2026",
+    "published_at": "2026-09-08T13:23:00-10:00",
+    "visual_theme": "storm",
+    "visual_label": "LOWELL • HAWAIʻI UPDATE",
+    "body": [
+      "Hurricane Lowell made its closest encounter with the main Hawaiian Islands around midnight and was moving away Tuesday morning, but officials continued to warn residents not to lower their guard too quickly. The National Weather Service in Honolulu said strong winds, heavy rainfall and extremely dangerous surf could continue to affect parts of the state even as the center of the storm pulled farther away.",
+      "For Oʻahu, the morning forecast continued to highlight tropical-storm-force wind impacts, flooding potential and hazardous surf. A Flood Watch and High Surf Warning remained posted for the Honolulu area into Tuesday evening. Conditions can vary sharply by location, especially near exposed coastlines, mountain areas and roads affected by runoff or wave action.",
+      "The practical message for residents is simple: travel carefully, avoid flooded roadways and do not approach shorelines where waves are crossing roads or reaching normally dry areas. Travelers should also check flight status and ground transportation before leaving for the airport because weather-related disruptions can continue even after the worst winds pass.",
+      "PinoyLink will continue prioritizing official alerts from the National Weather Service, Hawaiʻi Emergency Management Agency, county emergency offices and public-safety agencies as conditions change. Readers should treat social-media reports as preliminary unless they are confirmed by an official source."
+    ]
   },
   "stories": [
     {
       "desk": "Traffic",
       "headline": "Farrington Highway closure affects West Oʻahu",
-      "summary": "Honolulu Police reported a closure between Princess Kahanu Avenue and Kaukama Road because hazardous high surf was crossing the roadway.",
+      "summary": "Honolulu Police closed Farrington Highway in both directions between Princess Kahanu Avenue and Kaukama Road after hazardous high surf sent waves across all four lanes.",
+      "why_it_matters": "The closure directly affects Waiʻanae Coast travel and may cause significant detours and delays for residents, workers and emergency access.",
       "source_name": "Honolulu Police Department",
-      "source_url": "https://www.honolulupd.org/farrington-highway-closed-between-princess-kahanu-avenua-and-kaukama-road/"
+      "source_url": "https://www.honolulupd.org/farrington-highway-closed-between-princess-kahanu-avenua-and-kaukama-road/",
+      "slug": "farrington-highway-closure-west-oahu-high-surf",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "traffic",
+      "visual_label": "WEST OʻAHU • ROAD CLOSURE",
+      "body": [
+        "Honolulu Police reported that Farrington Highway was closed in both directions between Princess Kahanu Avenue and Kaukama Road on Tuesday because of hazardous high surf. Police said waves were crashing across all four lanes, creating conditions unsafe for normal vehicle traffic.",
+        "The closure is especially important for residents traveling along the Waiʻanae Coast, where Farrington Highway is a primary route. HPD advised motorists to avoid the affected area and use alternate routes. Emergency bypass roads were reported open between Kaukama Road and Lualualei Naval Road.",
+        "Drivers should expect changing conditions while high surf remains elevated. A road that appears passable can become dangerous quickly when another set of large waves reaches the shoreline. Do not drive through seawater, debris or standing water when the depth and road condition are uncertain.",
+        "PinoyLink recommends checking HPD and City and County traffic updates before beginning a West Oʻahu trip and allowing extra travel time. The official closure notice should be treated as the authoritative source for the affected segment until police announce that the roadway has reopened."
+      ]
     },
     {
       "desk": "Philippines",
-      "headline": "Habagat affects Luzon and the Visayas",
-      "summary": "PAGASA reports Southwest Monsoon conditions affecting parts of Luzon and the Visayas, with localized flood and landslide risk during heavier rain.",
+      "headline": "Habagat continues to affect Luzon and the Visayas",
+      "summary": "PAGASA says the Southwest Monsoon is affecting Luzon and the Visayas, bringing rain to western sections and scattered thunderstorms to other areas.",
+      "why_it_matters": "Families in Hawaiʻi with relatives traveling or living in affected Philippine regions should watch for localized flooding, landslides and transportation disruptions.",
       "source_name": "PAGASA",
-      "source_url": "https://www.pagasa.dost.gov.ph/agri-weather"
+      "source_url": "https://www.pagasa.dost.gov.ph/weather",
+      "slug": "habagat-luzon-visayas-september-8-2026",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "philippines",
+      "visual_label": "HABAGAT • PHILIPPINES",
+      "body": [
+        "The Southwest Monsoon, or habagat, continued to influence weather across Luzon and the Visayas on September 8, according to PAGASA. The agency's afternoon forecast placed several western Luzon provinces under occasional rain, while Metro Manila, other parts of Luzon, Aklan and Antique were forecast to have cloudy skies with scattered rain and thunderstorms.",
+        "PAGASA warned that moderate to heavy rain could produce flash floods or landslides in vulnerable areas. Other parts of the Visayas were expected to experience isolated rain showers or thunderstorms, with localized flooding or landslides possible during severe thunderstorms.",
+        "For Filipino families in Hawaiʻi, the most useful action is to check the exact province or city where relatives are located rather than relying on a single national forecast. Weather impacts can differ significantly between western coastal areas, mountain communities and urban locations. Travelers should also verify airport, ferry and bus operations when heavy rain is affecting their route.",
+        "PinoyLink will link directly to PAGASA for current forecasts and will distinguish routine weather information from higher-risk warnings. Readers planning travel should recheck official conditions close to departure because monsoon rainfall and thunderstorm timing can change quickly."
+      ]
     },
     {
       "desk": "Community",
       "headline": "Welcome to PinoyLink Hawaiʻi",
-      "summary": "A new Filipino Hawaiʻi community newsroom for local news, Philippines updates, immigration, travel, community, jobs, business and opportunities.",
+      "summary": "PinoyLink Hawaiʻi is building a Filipino community newsroom connecting island life with trusted updates from home.",
+      "why_it_matters": "The goal is to give Hawaiʻi readers one practical place for local news, Philippines updates, immigration information, community events, jobs, business and opportunities.",
       "source_name": "",
-      "source_url": ""
+      "source_url": "",
+      "slug": "welcome-to-pinoylink-hawaii",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "community",
+      "visual_label": "PEOPLE • PLACES • OPPORTUNITIES",
+      "body": [
+        "PinoyLink Hawaiʻi is designed as a community-first digital newsroom for Filipinos in Hawaiʻi and anyone who wants a practical bridge between island life and the Philippines. The publication brings together local traffic, weather, public safety, community events, jobs and business opportunities alongside verified Philippines, immigration, consular and travel updates.",
+        "The newsroom follows a source-first approach. Important public-information stories are linked back to official agencies whenever possible, while developing, legal, political or high-risk claims are held for additional review instead of being rushed online.",
+        "PinoyLink is also being built for mobile readers. Headlines are brief, the practical impact is made clear, and full story pages provide context without forcing readers to search across multiple websites. Email subscribers can receive the daily briefing, while social channels will point readers back to the canonical PinoyLink Hawaiʻi website.",
+        "As the platform grows, community organizations, churches, cultural groups and local businesses will have space to share verified events, opportunities and announcements. Sponsored placements will be clearly labeled so readers can distinguish advertising from newsroom content."
+      ]
     }
   ]
 }
