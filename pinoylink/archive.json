@@ -1,0 +1,54 @@
+{
+  "brand": "PinoyLink Hawaiʻi",
+  "updated_at": "2026-09-08T13:23:00-10:00",
+  "stories": [
+    {
+      "desk": "Hawaiʻi",
+      "headline": "Lowell impacts continue across Hawaiʻi as storm moves away",
+      "summary": "Hurricane Lowell is moving away from the islands, but dangerous surf, heavy rain and strong winds remain concerns across parts of Hawaiʻi through Tuesday.",
+      "why_it_matters": "Oʻahu commuters, coastal communities, travelers and families should continue checking official weather and emergency guidance before heading out.",
+      "source_name": "National Weather Service Honolulu",
+      "source_url": "https://www.weather.gov/hfo/",
+      "slug": "lowell-impacts-hawaii-september-8-2026",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "storm",
+      "visual_label": "LOWELL • HAWAIʻI UPDATE"
+    },
+    {
+      "desk": "Traffic",
+      "headline": "Farrington Highway closure affects West Oʻahu",
+      "summary": "Honolulu Police closed Farrington Highway in both directions between Princess Kahanu Avenue and Kaukama Road after hazardous high surf sent waves across all four lanes.",
+      "why_it_matters": "The closure directly affects Waiʻanae Coast travel and may cause significant detours and delays for residents, workers and emergency access.",
+      "source_name": "Honolulu Police Department",
+      "source_url": "https://www.honolulupd.org/farrington-highway-closed-between-princess-kahanu-avenua-and-kaukama-road/",
+      "slug": "farrington-highway-closure-west-oahu-high-surf",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "traffic",
+      "visual_label": "WEST OʻAHU • ROAD CLOSURE"
+    },
+    {
+      "desk": "Philippines",
+      "headline": "Habagat continues to affect Luzon and the Visayas",
+      "summary": "PAGASA says the Southwest Monsoon is affecting Luzon and the Visayas, bringing rain to western sections and scattered thunderstorms to other areas.",
+      "why_it_matters": "Families in Hawaiʻi with relatives traveling or living in affected Philippine regions should watch for localized flooding, landslides and transportation disruptions.",
+      "source_name": "PAGASA",
+      "source_url": "https://www.pagasa.dost.gov.ph/weather",
+      "slug": "habagat-luzon-visayas-september-8-2026",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "philippines",
+      "visual_label": "HABAGAT • PHILIPPINES"
+    },
+    {
+      "desk": "Community",
+      "headline": "Welcome to PinoyLink Hawaiʻi",
+      "summary": "PinoyLink Hawaiʻi is building a Filipino community newsroom connecting island life with trusted updates from home.",
+      "why_it_matters": "The goal is to give Hawaiʻi readers one practical place for local news, Philippines updates, immigration information, community events, jobs, business and opportunities.",
+      "source_name": "",
+      "source_url": "",
+      "slug": "welcome-to-pinoylink-hawaii",
+      "published_at": "2026-09-08T13:23:00-10:00",
+      "visual_theme": "community",
+      "visual_label": "PEOPLE • PLACES • OPPORTUNITIES"
+    }
+  ]
+}
