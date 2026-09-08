@@ -1,0 +1,39 @@
+{
+  "brand": "PinoyLink Hawaiʻi",
+  "tagline": "Your Bridge Between Hawaiʻi and Home",
+  "updated_at": "2026-09-08T11:40:00-10:00",
+  "edition_type": "midday",
+  "edition_date": "2026-09-08",
+  "status": "live",
+  "lead": {
+    "desk": "Hawaiʻi",
+    "headline": "Lowell impacts continue across Hawaiʻi",
+    "summary": "Tropical-storm conditions, flooding and dangerous surf remain concerns in parts of Hawaiʻi. Readers should continue following official emergency and weather guidance.",
+    "why_it_matters": "Travel, commuting, coastal activity and outdoor plans may still be affected.",
+    "source_name": "National Weather Service",
+    "source_url": "https://forecast.weather.gov/"
+  },
+  "stories": [
+    {
+      "desk": "Traffic",
+      "headline": "Farrington Highway closure affects West Oʻahu",
+      "summary": "Honolulu Police reported a closure between Princess Kahanu Avenue and Kaukama Road because hazardous high surf was crossing the roadway.",
+      "source_name": "Honolulu Police Department",
+      "source_url": "https://www.honolulupd.org/farrington-highway-closed-between-princess-kahanu-avenua-and-kaukama-road/"
+    },
+    {
+      "desk": "Philippines",
+      "headline": "Habagat affects Luzon and the Visayas",
+      "summary": "PAGASA reports Southwest Monsoon conditions affecting parts of Luzon and the Visayas, with localized flood and landslide risk during heavier rain.",
+      "source_name": "PAGASA",
+      "source_url": "https://www.pagasa.dost.gov.ph/agri-weather"
+    },
+    {
+      "desk": "Community",
+      "headline": "Welcome to PinoyLink Hawaiʻi",
+      "summary": "A new Filipino Hawaiʻi community newsroom for local news, Philippines updates, immigration, travel, community, jobs, business and opportunities.",
+      "source_name": "PinoyLink Hawaiʻi",
+      "source_url": "https://chatgpt-ta7xyc30.webondemand.com/"
+    }
+  ]
+}
