@@ -12,24 +12,29 @@
   <link rel="stylesheet" href="/styles.css?v=9" />
   <link rel="stylesheet" href="/admin-data.css?v=1" />
   <style>
-    .health-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.health-card{padding:20px;border:1px solid #ffffff1d;border-radius:20px;background:linear-gradient(180deg,#102b3d,#081d2a)}.health-card.ok{border-color:#5ee9a74d}.health-card.bad{border-color:#ff797955}.health-card h3{margin:0 0 8px}.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;background:#ff7979}.ok .status-dot{background:#5ee9a7}.kv{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin-top:16px}.kv div{padding:8px 0;border-bottom:1px solid #ffffff10}.tiny{font-size:.78rem}.env-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.env-item{padding:12px 14px;border-radius:14px;background:#ffffff07;border:1px solid #ffffff12}.env-item b{float:right}.env-item .yes{color:#8ef0ba}.env-item .no{color:#ff9c9c}@media(max-width:900px){.health-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.health-grid,.env-grid{grid-template-columns:1fr}}
+    .health-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.health-card{padding:20px;border:1px solid #ffffff1d;border-radius:20px;background:linear-gradient(180deg,#102b3d,#081d2a)}.health-card.ok{border-color:#5ee9a74d}.health-card.bad{border-color:#ff797955}.health-card h3{margin:0 0 8px}.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;background:#ff7979}.ok .status-dot{background:#5ee9a7}.kv{display:grid;grid-template-columns:1fr auto;gap:8px 16px;margin-top:16px}.kv div{padding:8px 0;border-bottom:1px solid #ffffff10}.tiny{font-size:.78rem}.env-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.env-item{padding:12px 14px;border-radius:14px;background:#ffffff07;border:1px solid #ffffff12}.env-item b{float:right}.env-item .yes{color:#8ef0ba}.env-item .no{color:#ff9c9c}.launch-note{margin-top:8px;max-width:760px}.blocked-summary{margin-top:14px;padding:14px 16px;border-radius:14px;background:#ffffff06;border:1px solid #ffffff12}@media(max-width:900px){.health-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.health-grid,.env-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/admin">Pinoy<span>Link</span> Admin</a><nav class="nav"><a href="/admin">Control Center</a><a href="/admin-newsroom">Newsroom</a><a href="/admin-advertisers">Revenue</a></nav><span class="pill">Health Monitor</span></div></header>
+<header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/admin">Pinoy<span>Link</span> Admin</a><nav class="nav"><a href="/admin">Control Center</a><a href="/admin-newsroom">Newsroom</a><a href="/admin-revenue">Revenue</a></nav><span class="pill">Health Monitor</span></div></header>
 <main>
-<section class="hero"><div class="wrap"><div class="eyebrow">Automation health • uptime • configuration</div><h1>PinoyLink <span>Health Monitor</span></h1><p class="lead">Check public routes, newsroom data feeds, and required production configuration from one private dashboard.</p></div></section>
+<section class="hero"><div class="wrap"><div class="eyebrow">Automation health • uptime • configuration</div><h1>PinoyLink <span>Health Monitor</span></h1><p class="lead">Check public routes, data feeds, production configuration and feature readiness from one private dashboard.</p></div></section>
 <section class="section"><div class="wrap">
   <div id="gate" class="admin-gate"><div class="eyebrow">Private access</div><h2>Enter admin token</h2><p class="muted">Your token is checked server-side and is never displayed in this dashboard.</p><input id="token" type="password" autocomplete="current-password" placeholder="Admin token"><button id="loadHealth">Run health check</button><div id="gateStatus" class="form-status"></div></div>
   <div id="health" hidden>
-    <div class="section-head"><div><div class="eyebrow">System status</div><h2 id="overall">Checking…</h2></div><div id="checkedAt" class="muted"></div></div>
+    <div class="section-head"><div><div class="eyebrow">Launch readiness</div><h2 id="overall">Checking…</h2><p id="overallNote" class="muted launch-note"></p></div><div id="checkedAt" class="muted"></div></div>
     <div id="cards" class="health-grid"></div>
+
+    <div class="section-head" style="margin-top:42px"><div><div class="eyebrow">Feature readiness</div><h2>What works end-to-end.</h2></div><p class="muted">READY means the required environment dependencies are present. It does not fabricate a successful transaction.</p></div>
+    <div id="features" class="env-grid"></div>
+    <div id="blockedSummary" class="blocked-summary muted"></div>
+
     <div class="section-head" style="margin-top:42px"><div><div class="eyebrow">Production configuration</div><h2>Environment readiness</h2></div><p class="muted">Only presence is shown. Secret values are never exposed.</p></div>
     <div id="env" class="env-grid"></div>
   </div>
 </div></section>
 </main>
 <footer><div class="wrap footer-wrap"><div><div class="brand">Pinoy<span>Link</span> Hawaiʻi</div><small>Automation Health Monitor</small></div><small>Private operations</small></div></footer>
-<script src="/admin-health.js?v=1" defer></script>
+<script src="/admin-health.js?v=2" defer></script>
 </body>
 </html>
