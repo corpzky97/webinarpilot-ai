@@ -1,36 +1,14 @@
-const ENDPOINT='https://api.3minapi.com/api/v1/data/z28zivht4w2c5eia587eq';
-
-function rowsFrom(data){
-  if(Array.isArray(data))return data;
-  if(Array.isArray(data?.records))return data.records;
-  if(Array.isArray(data?.data))return data.data;
-  if(Array.isArray(data?.items))return data.items;
-  return [];
-}
+const ANALYTICS='https://api.3minapi.com/api/v1/data/z28zivht4w2c5eia587eq';
+const SUBSCRIBERS='https://api.3minapi.com/api/v1/data/1ab2x5w26lthxsswkogmp';
+const PIPELINE='https://api.3minapi.com/api/v1/data/asjcr1qjg0xuze3ng2q3q';
+const DIRECTORY_SUBMISSIONS='https://api.3minapi.com/api/v1/data/cjamk6moj92tplgfs0uko';
+const FEED='https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/feed.json';
+const ARCHIVE='https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/archive.json';
+const DIRECTORY='https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/business-directory.json';
+function rowsFrom(data){if(Array.isArray(data))return data;if(Array.isArray(data?.records))return data.records;if(Array.isArray(data?.data))return data.data;if(Array.isArray(data?.items))return data.items;return []}
 function payloadOf(r){return r?.payload||r?.data||r||{}}
 function bump(map,key){if(!key)return;map[key]=(map[key]||0)+1}
 function top(map,n=8){return Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([name,count])=>({name,count}))}
-
-export default async function handler(req,res){
-  if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});
-  const token=String(req.headers['x-admin-token']||'');
-  if(!process.env.PINOYLINK_ADMIN_TOKEN||token!==process.env.PINOYLINK_ADMIN_TOKEN)return res.status(401).json({error:'Unauthorized'});
-  const key=process.env.THREEMIN_ANALYTICS_READ_KEY;
-  if(!key)return res.status(503).json({error:'Analytics read key is not configured.'});
-  try{
-    let all=[],cursor='';
-    for(let i=0;i<10;i++){
-      const url=new URL(ENDPOINT);url.searchParams.set('limit','30');if(cursor)url.searchParams.set('cursor',cursor);
-      const r=await fetch(url,{headers:{authorization:`Bearer ${key}`}});if(!r.ok)throw new Error('analytics '+r.status);
-      const data=await r.json();all.push(...rowsFrom(data));cursor=data?.pagination?.next_cursor||data?.next_cursor||'';if(!cursor)break;
-    }
-    const now=Date.now(),day=86400000;
-    const events=all.map(payloadOf).filter(Boolean);
-    const in7=events.filter(e=>{const t=Date.parse(e.occurred_at||'');return Number.isFinite(t)&&now-t<=7*day});
-    const in30=events.filter(e=>{const t=Date.parse(e.occurred_at||'');return Number.isFinite(t)&&now-t<=30*day});
-    const pages={},stories={},referrers={},devices={},ctas={},types={},sessions7=new Set(),sessions30=new Set();
-    for(const e of in30){bump(pages,e.page_path);bump(stories,e.story_slug);bump(referrers,e.referrer_host||'Direct / Unknown');bump(devices,e.device_type||'unknown');bump(ctas,e.cta);bump(types,e.event_type);if(e.session_id)sessions30.add(e.session_id)}
-    for(const e of in7)if(e.session_id)sessions7.add(e.session_id);
-    return res.status(200).json({ok:true,generated_at:new Date().toISOString(),sample_size:events.length,seven_day:{events:in7.length,sessions:sessions7.size},thirty_day:{events:in30.length,sessions:sessions30.size},event_types:types,top_pages:top(pages),top_stories:top(stories),top_referrers:top(referrers),devices:top(devices),top_ctas:top(ctas)});
-  }catch(error){console.error('PinoyLink admin analytics error',error);return res.status(502).json({error:'Analytics data is temporarily unavailable.'});}
-}
+async function fetch3(url,key,pages=1){if(!key)return null;let all=[],cursor='';for(let i=0;i<pages;i++){const u=new URL(url);u.searchParams.set('limit','30');if(cursor)u.searchParams.set('cursor',cursor);const r=await fetch(u,{headers:{authorization:`Bearer ${key}`}});if(!r.ok)throw new Error('3Min '+r.status);const d=await r.json();all.push(...rowsFrom(d).map(payloadOf));cursor=d?.pagination?.next_cursor||d?.next_cursor||'';if(!cursor)break}return all}
+async function safeJson(url){try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)return null;return await r.json()}catch{return null}}
+export default async function handler(req,res){if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});const token=String(req.headers['x-admin-token']||'');if(!process.env.PINOYLINK_ADMIN_TOKEN||token!==process.env.PINOYLINK_ADMIN_TOKEN)return res.status(401).json({error:'Unauthorized'});const key=process.env.THREEMIN_ANALYTICS_READ_KEY;if(!key)return res.status(503).json({error:'Analytics read key is not configured.'});try{const [events,subs,pipeline,dirSub,feed,archive,directory]=await Promise.all([fetch3(ANALYTICS,key,10),fetch3(SUBSCRIBERS,process.env.THREEMIN_SUBSCRIBERS_READ_KEY,3).catch(()=>null),fetch3(PIPELINE,process.env.THREEMIN_AD_PIPELINE_READ_KEY,3).catch(()=>null),fetch3(DIRECTORY_SUBMISSIONS,process.env.THREEMIN_DIRECTORY_ADMIN_KEY,3).catch(()=>null),safeJson(FEED),safeJson(ARCHIVE),safeJson(DIRECTORY)]);const now=Date.now(),day=86400000;const in7=events.filter(e=>{const t=Date.parse(e.occurred_at||'');return Number.isFinite(t)&&now-t<=7*day});const in30=events.filter(e=>{const t=Date.parse(e.occurred_at||'');return Number.isFinite(t)&&now-t<=30*day});const pages={},stories={},referrers={},devices={},ctas={},types={},sessions7=new Set(),sessions30=new Set();for(const e of in30){bump(pages,e.page_path);bump(stories,e.story_slug);bump(referrers,e.referrer_host||'Direct / Unknown');bump(devices,e.device_type||'unknown');bump(ctas,e.cta);bump(types,e.event_type);if(e.session_id)sessions30.add(e.session_id)}for(const e of in7)if(e.session_id)sessions7.add(e.session_id);const recentSubs=Array.isArray(subs)?subs.filter(s=>{const t=Date.parse(s.subscribed_at||'');return Number.isFinite(t)&&now-t<=30*day&&String(s.status||'active').toLowerCase()==='active'}).length:null;const activeAds=Array.isArray(pipeline)?pipeline.filter(x=>String(x.status||'active').toLowerCase()==='active'&&!['COMPLETED','LOST','CLOSED'].includes(String(x.stage||'').toUpperCase())).length:null;const pendingDir=Array.isArray(dirSub)?dirSub.filter(x=>['pending','needs_review',''].includes(String(x.review_status||'pending').toLowerCase())&&String(x.status||'active').toLowerCase()==='active').length:null;const publicListings=Array.isArray(directory?.businesses)?directory.businesses.length:0;const archiveCount=Array.isArray(archive?.stories)?archive.stories.length:Array.isArray(archive)?archive.length:0;const feedTime=Date.parse(feed?.updated_at||'');const feedAgeHours=Number.isFinite(feedTime)?Math.round((now-feedTime)/360000)/10:null;return res.status(200).json({ok:true,generated_at:new Date().toISOString(),sample_size:events.length,seven_day:{events:in7.length,sessions:sessions7.size},thirty_day:{events:in30.length,sessions:sessions30.size},ops:{subscribers_30d:recentSubs,active_advertisers:activeAds,pending_directory:pendingDir,public_listings:publicListings,archive_stories:archiveCount,feed_age_hours:feedAgeHours},event_types:types,top_pages:top(pages),top_stories:top(stories),top_referrers:top(referrers),devices:top(devices),top_ctas:top(ctas)});}catch(error){console.error('PinoyLink admin analytics error',error);return res.status(502).json({error:'Analytics data is temporarily unavailable.'});}}
