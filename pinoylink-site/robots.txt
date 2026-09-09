@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin-advertisers
+Disallow: /admin-newsroom
+Disallow: /admin-subscribers
+Disallow: /api/
+
+Sitemap: https://pinoylinkhawaii.com/sitemap.xml
