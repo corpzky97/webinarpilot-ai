@@ -9,23 +9,24 @@ export default async function handler(req,res){
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return res.status(400).json({error:'Enter a valid email address.'});
   const allowedLanguages=new Set(['english','tagalog','ilocano','bisaya']);
   const allowedIslands=new Set(['Oahu','Maui','Hawaii Island','Kauai','Molokai','Lanai','other']);
+  const allowedInterests=new Set(['hawaii','traffic','weather','philippines','immigration','community','jobs','business','consular','markets']);
+  const interests=Array.isArray(body.interests)?body.interests.filter(v=>allowedInterests.has(v)).slice(0,10):[];
   const payload={
     email,
     first_name:String(body.first_name||'').trim().slice(0,80),
     language:allowedLanguages.has(body.language)?body.language:'english',
     island:allowedIslands.has(body.island)?body.island:'other',
-    philippines_province:'',
+    philippines_province:String(body.philippines_province||'').trim().slice(0,100),
     plan:'free',
-    interests:['hawaii','traffic','weather','philippines','immigration','community','jobs','business'],
+    interests:interests.length?interests:['hawaii','philippines','community'],
     consent_source:'pinoylinkhawaii.com native signup',
     subscribed_at:new Date().toISOString(),
     status:'active'
   };
   try{
     const upstream=await fetch(ENDPOINT,{method:'POST',headers:{'content-type':'application/json','authorization':`Bearer ${key}`},body:JSON.stringify(payload)});
-    const text=await upstream.text();
     if(!upstream.ok)return res.status(upstream.status>=500?502:400).json({error:'Subscription could not be completed.'});
-    return res.status(200).json({ok:true});
+    return res.status(200).json({ok:true,preferences_url:'/preferences?email='+encodeURIComponent(email)});
   }catch(error){
     console.error('PinoyLink subscribe error',error);
     return res.status(502).json({error:'Subscription service is temporarily unavailable.'});
