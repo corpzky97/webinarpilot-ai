@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=5" />
   <link rel="stylesheet" href="/media.css?v=1" />
+  <link rel="stylesheet" href="/accessibility.css?v=1" />
   <style>
     .archive-hero{padding:82px 0 34px}.archive-hero h1{font-size:clamp(3rem,7vw,6.3rem)}
     .archive-tools{display:grid;grid-template-columns:1.4fr .6fr;gap:14px;margin-top:28px}.archive-tools input,.archive-tools select{width:100%;border:1px solid #ffffff24;border-radius:16px;background:#081c2a;color:#f7fbff;padding:15px 16px;font:inherit}.archive-tools select option{color:#111}
@@ -19,10 +20,11 @@
   </style>
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a><nav class="nav"><a href="/">Home</a><a href="/archive">Latest</a><a href="/archive?desk=Hawaiʻi">Hawaiʻi</a><a href="/archive?desk=Philippines">Philippines</a><a href="/archive?desk=Immigration">Immigration</a><a href="/archive?desk=Community">Community</a></nav><a class="pill" href="/#subscribe">Get the Daily</a></div></header>
-  <main>
-    <section class="archive-hero"><div class="wrap"><div class="eyebrow">PinoyLink Newsroom</div><h1>Find what matters <span>now.</span></h1><p class="lead">Search verified PinoyLink Hawaiʻi stories across island life, Philippines, immigration, community, traffic, business and more.</p><div class="archive-tools"><input id="archiveSearch" type="search" placeholder="Search headlines, topics or summaries…" aria-label="Search PinoyLink stories"><select id="deskFilter" aria-label="Filter by desk"><option value="">All desks</option></select></div><div id="chipRow" class="archive-chip-row"></div></div></section>
-    <section class="section" style="padding-top:26px"><div class="wrap"><div class="archive-meta"><div><div class="eyebrow">Latest & archive</div><h2>Story library</h2></div><div id="archiveCount" class="muted">Loading…</div></div><div id="archiveGrid" class="archive-grid"></div></div></section>
+  <a class="skip-link" href="#main-content">Skip to story library</a>
+  <header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a><nav class="nav" aria-label="Primary"><a href="/">Home</a><a href="/archive">Latest</a><a href="/archive?desk=Hawaiʻi">Hawaiʻi</a><a href="/archive?desk=Philippines">Philippines</a><a href="/archive?desk=Immigration">Immigration</a><a href="/archive?desk=Community">Community</a></nav><a class="pill" href="/#subscribe">Get the Daily</a></div></header>
+  <main id="main-content" tabindex="-1">
+    <section class="archive-hero"><div class="wrap"><div class="eyebrow">PinoyLink Newsroom</div><h1>Find what matters <span>now.</span></h1><p class="lead">Search verified PinoyLink Hawaiʻi stories across island life, Philippines, immigration, community, traffic, business and more.</p><div class="archive-tools"><label class="sr-only" for="archiveSearch">Search PinoyLink stories</label><input id="archiveSearch" type="search" placeholder="Search headlines, topics or summaries…"><label class="sr-only" for="deskFilter">Filter stories by desk</label><select id="deskFilter"><option value="">All desks</option></select></div><div id="chipRow" class="archive-chip-row" aria-label="Story desk filters"></div></div></section>
+    <section class="section" style="padding-top:26px"><div class="wrap"><div class="archive-meta"><div><div class="eyebrow">Latest & archive</div><h2>Story library</h2></div><div id="archiveCount" class="muted" role="status" aria-live="polite">Loading…</div></div><div id="archiveGrid" class="archive-grid" aria-live="polite"></div></div></section>
   </main>
   <footer><div class="wrap footer-wrap"><div><div class="brand">Pinoy<span>Link</span> Hawaiʻi</div><small>Your Bridge Between Hawaiʻi and Home.</small></div><small>Source-first • Community-first • Mobile-first</small></div></footer>
   <script src="/archive.js?v=2" defer></script>
