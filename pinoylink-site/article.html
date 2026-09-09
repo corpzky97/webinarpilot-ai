@@ -24,8 +24,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=4" />
   <link rel="stylesheet" href="/media.css?v=1" />
+  <link rel="stylesheet" href="/accessibility.css?v=1" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to article</a>
   <header class="topbar">
     <div class="wrap nav-wrap">
       <a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a>
@@ -34,13 +36,13 @@
     </div>
   </header>
 
-  <main class="article-shell">
+  <main class="article-shell" id="main-content" tabindex="-1">
     <article class="article-wrap wrap" id="article">
       <a class="back-link" href="/archive">← Back to PinoyLink Archive</a>
       <div id="article-desk" class="eyebrow">PinoyLink newsroom</div>
       <h1 id="article-title" class="article-title">Loading story…</h1>
       <p id="article-dek" class="article-dek">Loading the latest approved article.</p>
-      <div id="article-meta" class="article-meta"></div>
+      <div id="article-meta" class="article-meta" aria-live="polite"></div>
 
       <div id="article-visual" class="article-visual visual-news" aria-hidden="true">
         <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
@@ -50,14 +52,14 @@
 
       <div class="article-layout">
         <div class="article-main">
-          <div id="article-body" class="article-body"></div>
+          <div id="article-body" class="article-body" aria-live="polite"></div>
           <section id="why-box" class="why-box"><div class="eyebrow">Why it matters</div><p id="article-why"></p></section>
           <section class="source-box"><div class="eyebrow">Verified source</div><p>PinoyLink summarizes public information and links readers to the originating source for verification and updates.</p><a id="article-source" href="#" target="_blank" rel="noopener">Open official source →</a></section>
           <div id="article-disclaimer" class="article-disclaimer"></div>
         </div>
-        <aside class="article-aside">
+        <aside class="article-aside" aria-label="Article actions">
           <div class="aside-card"><div class="eyebrow">PinoyLink Daily</div><h3>Stay connected to Hawaiʻi and home.</h3><p>Local traffic, weather, Philippines, immigration, community and opportunities — source-first and mobile-friendly.</p><a class="cta primary" href="/#subscribe">Subscribe free</a></div>
-          <div class="aside-card"><div class="eyebrow">Share</div><div class="share-row"><button id="copy-link" class="share-btn">Copy link</button><a id="share-facebook" class="share-btn" href="#" target="_blank" rel="noopener">Facebook</a></div><div id="copy-status" class="muted small"></div></div>
+          <div class="aside-card"><div class="eyebrow">Share</div><div class="share-row"><button id="copy-link" class="share-btn" type="button">Copy link</button><a id="share-facebook" class="share-btn" href="#" target="_blank" rel="noopener">Facebook</a></div><div id="copy-status" class="muted small" role="status" aria-live="polite"></div></div>
         </aside>
       </div>
     </article>
