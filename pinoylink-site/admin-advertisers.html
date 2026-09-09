@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#06131f" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>PinoyLink Advertiser Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=8" />
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a><nav class="nav"><a href="/">Home</a><a href="/advertise">Advertise</a></nav><span class="pill">Private CRM</span></div></header>
+  <main class="section"><div class="wrap">
+    <div class="eyebrow">Private advertiser operations</div>
+    <h1 style="font-size:clamp(2.8rem,6vw,5rem);margin-bottom:18px">Advertiser <span>Pipeline</span></h1>
+    <p class="muted" style="max-width:760px">Review advertiser inquiries, priority and current sales stage. This page requires your private admin token and never exposes the 3Min API key to the browser.</p>
+
+    <section id="adminGate" class="admin-gate">
+      <label for="adminToken">Admin token</label>
+      <div class="admin-login-row"><input id="adminToken" type="password" autocomplete="current-password" placeholder="Enter private admin token"><button id="unlockAdmin" class="subscribe-submit" type="button">Open pipeline</button></div>
+      <div id="adminStatus" class="form-status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="pipelinePanel" hidden>
+      <div class="pipeline-toolbar"><div><b id="pipelineCount">0 leads</b><span id="pipelineUpdated">Not loaded</span></div><div class="pipeline-actions"><select id="stageFilter"><option value="">All stages</option><option>NEW</option><option>CONTACTED</option><option>QUALIFIED</option><option>PROPOSAL SENT</option><option>APPROVED</option><option>ACTIVE CAMPAIGN</option><option>COMPLETED</option><option>CLOSED</option></select><select id="priorityFilter"><option value="">All priorities</option><option>HOT</option><option>WARM</option><option>STANDARD</option></select><button id="refreshPipeline" class="share-btn" type="button">Refresh</button></div></div>
+      <div id="pipelineGrid" class="pipeline-grid"></div>
+      <button id="loadMorePipeline" class="cta secondary" type="button" hidden>Load more</button>
+    </section>
+  </div></main>
+  <script src="/admin-advertisers.js?v=1" defer></script>
+</body>
+</html>
