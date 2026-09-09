@@ -10,7 +10,7 @@ if(results[0].status==='fulfilled')editorial=listRows(results[0].value).map(payl
 if(results[1].status==='fulfilled')sales=listRows(results[1].value).map(payload);else errors.push('advertisers');
 if(results[2].status==='fulfilled')directory=listRows(results[2].value).map(payload);else errors.push('directory');
 if(results[3].status==='fulfilled')health=results[3].value;else errors.push('health');
-const editorialPending=editorial.filter(x=>['manual_review','needs_review','held','pending'].includes(String(x.review_status||x.status||'').toLowerCase())||x.manual_review_required===true);
+const editorialPending=editorial.filter(x=>['manual_review','manual_approval','needs_review','held','pending'].includes(String(x.review_status||x.status||'').toLowerCase())||x.manual_review_required===true);
 const salesPending=sales.filter(x=>{const s=String(x.status||'active').toLowerCase(),stage=String(x.stage||'').toLowerCase();return s==='active'&&!['completed','closed','lost'].includes(stage)});
 const dirPending=directory.filter(x=>['pending','new','needs_review',''].includes(String(x.review_status||'').toLowerCase())&&String(x.status||'active').toLowerCase()!=='inactive');
 const systemIssues=health?[(health.public_ok===false),(health.config_ok===false),...(health.checks||[]).map(c=>c.ok===false)].filter(Boolean).length:0;
