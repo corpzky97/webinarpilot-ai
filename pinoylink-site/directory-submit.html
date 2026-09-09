@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#06131f" />
+  <meta name="description" content="Submit a business or organization for review in the PinoyLink Hawaiʻi directory." />
+  <title>List Your Business | PinoyLink Hawaiʻi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=9" />
+  <style>
+    .submit-hero{padding:84px 0 54px;background:radial-gradient(circle at 80% 14%,#0b66855c,transparent 24%),linear-gradient(180deg,#04101a,#071824);border-bottom:1px solid #ffffff12}.submit-grid{display:grid;grid-template-columns:.76fr 1.24fr;gap:38px;align-items:start}.listing-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:26px;border:1px solid #ffffff22;border-radius:28px;background:linear-gradient(180deg,#0d2839,#071a26);box-shadow:0 24px 70px #0005}.listing-form .full{grid-column:1/-1}.listing-form input,.listing-form select,.listing-form textarea{width:100%;border:1px solid #ffffff24;border-radius:14px;background:#04131f;color:#f7fbff;padding:14px 15px;font:inherit}.listing-form textarea{min-height:150px;resize:vertical}.listing-form select option{color:#111}.listing-form input:focus,.listing-form select:focus,.listing-form textarea:focus{outline:none;border-color:#58d8e7;box-shadow:0 0 0 3px #58d8e71b}.submit-btn{border:0;border-radius:999px;background:linear-gradient(135deg,#ffe398,#f5b936);color:#06131f;font:inherit;font-weight:800;padding:15px 20px;cursor:pointer}.submit-btn:disabled{opacity:.62}.form-status{min-height:24px;font-weight:800}.form-status.ok{color:#aef9cf}.form-status.err{color:#ffaaa9}.review-card{padding:26px;border:1px solid #ffffff20;border-radius:26px;background:linear-gradient(180deg,#102d40,#071c29)}.review-card ul{padding-left:20px;line-height:1.9;color:#d6e5eb}@media(max-width:900px){.submit-grid{grid-template-columns:1fr}}@media(max-width:620px){.listing-form{grid-template-columns:1fr;padding:18px}.listing-form .full{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a><nav class="nav"><a href="/">Home</a><a href="/directory">Directory</a><a href="/advertise">Advertise</a></nav><a class="pill" href="/directory">Browse directory</a></div></header>
+<main>
+  <section class="submit-hero"><div class="wrap"><div class="eyebrow">Business directory • Community discovery</div><h1>List your business on <span>PinoyLink Hawaiʻi.</span></h1><p class="lead">Submit your business, ministry, nonprofit or community organization for review. Standard listings are reviewed before publication; paid or featured visibility is always labeled separately.</p></div></section>
+  <section class="section"><div class="wrap submit-grid"><div><div class="eyebrow">How it works</div><h2>Submit once. We review before publishing.</h2><div class="review-card"><ul><li>Business details are reviewed for completeness and legitimacy.</li><li>Standard directory submission does not guarantee immediate publication.</li><li>Sponsored or featured placement requires a separate advertising agreement.</li><li>Misleading, unsafe, illegal or deceptive listings are not accepted.</li></ul></div></div><form id="directorySubmitForm" class="listing-form" novalidate><input id="dirBusiness" placeholder="Business / organization name" required><input id="dirCategory" placeholder="Category or service" required><select id="dirIsland" required><option value="">Select island</option><option>Oahu</option><option>Maui</option><option>Hawaii Island</option><option>Kauai</option><option>Molokai</option><option>Lanai</option><option>Statewide</option><option>Other</option></select><input id="dirCity" placeholder="City / town"><input id="dirEmail" type="email" placeholder="Public or contact email"><input id="dirPhone" placeholder="Phone"><input id="dirWebsite" placeholder="Website"><input id="dirSocial" placeholder="Social page URL"><input id="dirAddress" class="full" placeholder="Business address (optional)"><textarea id="dirDescription" class="full" placeholder="Short description of your business, organization or service."></textarea><input id="dirTags" class="full" placeholder="Tags, separated by commas (example: catering, Filipino food, Honolulu)"><label class="consent full"><input id="dirConsent" type="checkbox" required><span>I confirm the information submitted is accurate and I authorize PinoyLink Hawaiʻi to review it for directory publication.</span></label><button id="dirSubmit" class="submit-btn full" type="submit">Submit for review</button><div id="dirStatus" class="form-status full" role="status" aria-live="polite"></div></form></div></section>
+</main>
+<footer><div class="wrap footer-wrap"><div><div class="brand">Pinoy<span>Link</span> Hawaiʻi</div><small>Your Bridge Between Hawaiʻi and Home.</small></div><small>Reviewed listings • Transparent sponsorships</small></div></footer>
+<script src="/directory-submit.js?v=1" defer></script>
+</body>
+</html>
