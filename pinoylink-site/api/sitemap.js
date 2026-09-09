@@ -13,6 +13,8 @@ export default async function handler(req,res){
     url(`${ORIGIN}/join`,{changefreq:'weekly',priority:'0.9'}),
     url(`${ORIGIN}/lost-found`,{changefreq:'daily',priority:'0.8'}),
     url(`${ORIGIN}/memorials`,{changefreq:'daily',priority:'0.7'}),
+    url(`${ORIGIN}/events`,{changefreq:'daily',priority:'0.9'}),
+    url(`${ORIGIN}/jobs`,{changefreq:'daily',priority:'0.9'}),
     url(`${ORIGIN}/directory`,{changefreq:'weekly',priority:'0.8'}),
     url(`${ORIGIN}/directory-submit`,{changefreq:'monthly',priority:'0.5'}),
     url(`${ORIGIN}/advertise`,{changefreq:'monthly',priority:'0.7'}),
