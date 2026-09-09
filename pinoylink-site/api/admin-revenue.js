@@ -16,8 +16,11 @@ export default async function handler(req,res){
     const hot=active.filter(r=>String(r.priority||'').toUpperCase()==='HOT');
     const openBookings=bookings.rows.filter(r=>!['completed','cancelled','rejected'].includes(String(r.campaign_status||'').toLowerCase()));
     const paid=bookings.rows.filter(r=>String(r.payment_status||'').toLowerCase()==='paid');
+    const fulfillment=bookings.rows.filter(r=>['awaiting_destination','awaiting_schedule','payment_required','review_required'].includes(String(r.placement_status||'').toLowerCase()));
+    const scheduled=bookings.rows.filter(r=>['scheduled','active'].includes(String(r.placement_status||'').toLowerCase()));
+    const reportReady=bookings.rows.filter(r=>String(r.report_status||'').toLowerCase()==='ready');
     const failed=payments.rows.filter(r=>String(r.event_type||'').includes('failed'));
     const refunds=payments.rows.filter(r=>String(r.event_type||'').includes('refund'));
-    return res.status(200).json({ok:true,generated_at:new Date().toISOString(),configured:{pipeline:pipeline.configured,bookings:bookings.configured,payments:payments.configured},metrics:{active_leads:active.length,hot_leads:hot.length,open_bookings:openBookings.length,paid_bookings:paid.length,failed_payments:failed.length,refund_events:refunds.length},pipeline:pipeline.rows,bookings:bookings.rows,payments:payments.rows});
+    return res.status(200).json({ok:true,generated_at:new Date().toISOString(),configured:{pipeline:pipeline.configured,bookings:bookings.configured,payments:payments.configured},metrics:{active_leads:active.length,hot_leads:hot.length,open_bookings:openBookings.length,paid_bookings:paid.length,fulfillment_actions:fulfillment.length,scheduled_campaigns:scheduled.length,reports_ready:reportReady.length,failed_payments:failed.length,refund_events:refunds.length},pipeline:pipeline.rows,bookings:bookings.rows,payments:payments.rows});
   }catch(error){console.error('PinoyLink admin revenue error',error);return res.status(502).json({error:'Revenue data is temporarily unavailable.'});}
 }
