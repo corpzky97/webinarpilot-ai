@@ -1,0 +1,7 @@
+const $=id=>document.getElementById(id);
+const status=$('backupStatus');
+function token(){return $('adminToken').value.trim()}
+$('saveToken').addEventListener('click',()=>{if(!token()){status.textContent='Enter your admin token first.';return}sessionStorage.setItem('pinoylink_admin_token',token());status.textContent='Private export access unlocked for this browser session.'});
+async function exportDataset(name){const t=token()||sessionStorage.getItem('pinoylink_admin_token')||'';if(!t){status.textContent='Enter your admin token before exporting private data.';return}status.textContent=`Preparing ${name} export…`;try{const r=await fetch('/api/admin-export?dataset='+encodeURIComponent(name),{headers:{'x-admin-token':t},cache:'no-store'});if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.error||'Export failed.')}const blob=await r.blob();const disposition=r.headers.get('content-disposition')||'';const m=disposition.match(/filename="([^"]+)"/);const filename=m?m[1]:`pinoylink-${name}.json`;const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent=`${name} export downloaded.`}catch(e){status.textContent=e.message||'Export failed.'}}
+document.querySelectorAll('[data-export]').forEach(b=>b.addEventListener('click',()=>exportDataset(b.dataset.export)));
+const saved=sessionStorage.getItem('pinoylink_admin_token');if(saved)$('adminToken').value=saved;
