@@ -1,9 +1,10 @@
 const FEED_URL='https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/feed.json';
+const CANONICAL_ORIGIN='https://pinoylinkhawaii.com';
 const fallback={brand:'PinoyLink Hawaiʻi',tagline:'Your Bridge Between Hawaiʻi and Home.',updated_at:null,edition_type:'latest',edition_date:'',status:'warming_up',lead:{desk:'Newsroom',headline:'PinoyLink Hawaiʻi',summary:'The live newsroom feed is being prepared. Approved stories will appear here automatically.',why_it_matters:'',source_name:'',source_url:'',slug:'',visual_theme:'news',visual_label:'LIVE NEWSROOM'},stories:[]};
 function esc(v){return String(v??'').replace(/[&<>'\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','\"':'&quot;'}[c]))}
 function niceDate(v){if(!v)return 'Live feed connected';try{return 'Updated '+new Intl.DateTimeFormat('en-US',{dateStyle:'medium',timeStyle:'short',timeZone:'Pacific/Honolulu'}).format(new Date(v))+' HST'}catch{return 'Updated recently'}}
 function isExternalSource(url,name){if(!url)return false;try{const u=new URL(url,location.origin);const internalHosts=new Set(['pinoylinkhawaii.com','www.pinoylinkhawaii.com','pinoylink-hawaii.vercel.app']);return !internalHosts.has(u.hostname)&&String(name||'').toLowerCase()!=='pinoylink hawaiʻi'}catch{return false}}
-function articleUrl(s){return s&&s.slug?'/news/'+encodeURIComponent(s.slug):''}
+function articleUrl(s){return s&&s.slug?CANONICAL_ORIGIN+'/news/'+encodeURIComponent(s.slug):''}
 function themeClass(s){const t=String(s&&s.visual_theme||'news').toLowerCase().replace(/[^a-z-]/g,'');return 'theme-'+(t||'news')}
 function render(feed){
   const lead=feed.lead||fallback.lead;
