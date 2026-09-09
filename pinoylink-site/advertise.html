@@ -10,79 +10,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=6" />
+  <style>
+    .partner-hero{padding:92px 0 72px;border-bottom:1px solid #ffffff12;background:radial-gradient(circle at 82% 18%,#0c537166 0,transparent 24%),linear-gradient(180deg,#04101a,#071824)}
+    .partner-hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}.partner-card{padding:30px;border:1px solid #ffffff22;border-radius:28px;background:linear-gradient(180deg,#12344ad9,#0a2231d9);box-shadow:0 30px 80px #0007}.premium-glow{box-shadow:0 24px 70px #58d8e717,0 30px 80px #0007}.clean-list{margin:18px 0 0;padding-left:20px;color:#d7e7ed;line-height:1.9}.partner-note{max-width:460px}.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.partner-option{padding:24px;border:1px solid #ffffff1c;border-radius:22px;background:linear-gradient(180deg,#102b3d,#081d2a)}.partner-option>span{font-size:.72rem;letter-spacing:.16em;color:#58d8e7;font-weight:800}.partner-option h3{font-size:1.25rem;margin:10px 0}.partner-option p{color:#a8bcc8;line-height:1.65;margin-bottom:0}
+    .inquiry-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:40px;align-items:start}.advertise-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:26px;border:1px solid #ffffff22;border-radius:28px;background:linear-gradient(180deg,#0d2839,#071a26);box-shadow:0 24px 70px #0005}.advertise-form .full{grid-column:1/-1}.advertise-form input,.advertise-form select,.advertise-form textarea{width:100%;min-height:50px;border:1px solid #ffffff24;border-radius:14px;background:#04131f;color:#f7fbff;padding:14px 15px;font:inherit;outline:none}.advertise-form textarea{min-height:150px;resize:vertical}.advertise-form input::placeholder,.advertise-form textarea::placeholder{color:#839aa8}.advertise-form select option{color:#111}.advertise-form input:focus,.advertise-form select:focus,.advertise-form textarea:focus{border-color:#58d8e7;box-shadow:0 0 0 3px #58d8e71b}.consent{display:flex;gap:10px;align-items:flex-start;color:#b8cad3;font-size:.86rem;line-height:1.5}.consent input{width:auto;min-height:auto;margin-top:3px}.subscribe-submit{border:0;border-radius:999px;background:linear-gradient(135deg,#ffe398,#f5b936);color:#06131f;font:inherit;font-weight:800;padding:15px 20px;cursor:pointer;transition:.2s}.subscribe-submit:hover{transform:translateY(-2px)}.button-busy{opacity:.68;pointer-events:none}.form-status{min-height:24px;font-size:.92rem;font-weight:800}.form-status.ok{color:#aef9cf}.form-status.err{color:#ffaaa9}
+    @media(max-width:900px){.partner-hero-grid,.inquiry-layout{grid-template-columns:1fr}.partner-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.partner-hero{padding:62px 0 48px}.partner-grid,.advertise-form{grid-template-columns:1fr}.advertise-form{padding:18px}.advertise-form .full{grid-column:auto}}
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap nav-wrap">
       <a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a>
-      <nav class="nav"><a href="/">Home</a><a href="/archive">Archive</a><a href="/advertise">Advertise</a></nav>
+      <nav class="nav"><a href="/">Home</a><a href="/directory">Directory</a><a href="/archive">Archive</a><a href="/advertise">Advertise</a></nav>
       <a class="pill" href="#inquiry">Start an inquiry</a>
     </div>
   </header>
   <main>
     <section class="partner-hero">
       <div class="wrap partner-hero-grid">
-        <div>
-          <div class="eyebrow">Local business • Sponsors • Community partners</div>
-          <h1>Grow with the <span>Filipino Hawaiʻi</span> community.</h1>
-          <p class="lead">PinoyLink Hawaiʻi gives local businesses, ministries, nonprofits, service providers and community organizations a premium place to be discovered. Sponsorships are always clearly labeled and kept separate from newsroom reporting.</p>
-          <div class="hero-actions"><a class="cta primary" href="#inquiry">Request placement</a><a class="cta secondary" href="#options">See opportunities</a></div>
-        </div>
-        <aside class="partner-card premium-glow">
-          <div class="eyebrow">Why PinoyLink</div>
-          <h2>Community-first visibility.</h2>
-          <ul class="clean-list"><li>Mobile-first local audience</li><li>Homepage and newsletter exposure</li><li>Business directory discovery</li><li>Sponsored story opportunities</li><li>Event and community promotion</li></ul>
-        </aside>
+        <div><div class="eyebrow">Local business • Sponsors • Community partners</div><h1>Grow with the <span>Filipino Hawaiʻi</span> community.</h1><p class="lead">PinoyLink Hawaiʻi gives local businesses, ministries, nonprofits, service providers and community organizations a premium place to be discovered. Sponsorships are always clearly labeled and kept separate from newsroom reporting.</p><div class="hero-actions"><a class="cta primary" href="#inquiry">Request placement</a><a class="cta secondary" href="#options">See opportunities</a></div></div>
+        <aside class="partner-card premium-glow"><div class="eyebrow">Why PinoyLink</div><h2>Community-first visibility.</h2><ul class="clean-list"><li>Mobile-first local audience</li><li>Homepage and newsletter exposure</li><li>Business directory discovery</li><li>Sponsored story opportunities</li><li>Event and community promotion</li></ul></aside>
       </div>
     </section>
-
-    <section id="options" class="section">
-      <div class="wrap">
-        <div class="section-head"><div><div class="eyebrow">Advertising opportunities</div><h2>Choose the right placement.</h2></div><p class="muted partner-note">Pricing is quoted based on placement, duration, creative needs and availability. No reach or performance guarantees are fabricated.</p></div>
-        <div class="partner-grid">
-          <article class="partner-option"><span>01</span><h3>Local Business Spotlight</h3><p>Premium business card placement on PinoyLink with business name, category, location, offer and website or contact CTA.</p></article>
-          <article class="partner-option"><span>02</span><h3>Newsletter Sponsor</h3><p>Clearly labeled sponsor placement inside an approved PinoyLink Daily edition sent to consenting subscribers.</p></article>
-          <article class="partner-option"><span>03</span><h3>Sponsored Feature</h3><p>A clearly labeled business or organization feature written separately from independent newsroom coverage.</p></article>
-          <article class="partner-option"><span>04</span><h3>Event Promotion</h3><p>Community event, church event, cultural activity or nonprofit announcement with verified details and organizer contact.</p></article>
-          <article class="partner-option"><span>05</span><h3>Jobs & Opportunities</h3><p>Promote legitimate openings, recruiting events, professional services or business opportunities to local readers.</p></article>
-          <article class="partner-option"><span>06</span><h3>Founding Partner</h3><p>Longer-term multi-placement partnership combining website, newsletter and community visibility, subject to editorial safeguards.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section band">
-      <div class="wrap desk-grid">
-        <div><div class="eyebrow">Editorial trust</div><h2>Advertising stays clearly labeled.</h2><p class="muted">Sponsors do not control independent newsroom coverage. Paid placements are identified as Sponsored, Partner, Advertisement or Business Spotlight so readers can tell commercial content from reporting.</p></div>
-        <div class="feature-panel"><b>Not accepted</b><p>Misleading claims, illegal offers, deceptive financial promises, unsafe products, political persuasion disguised as news, or campaigns that conflict with PinoyLink editorial and community safety standards.</p></div>
-      </div>
-    </section>
-
-    <section id="inquiry" class="section">
-      <div class="wrap inquiry-layout">
-        <div>
-          <div class="eyebrow">Advertiser inquiry</div>
-          <h2>Tell us what you want to promote.</h2>
-          <p class="muted">This is an inquiry, not a purchase. PinoyLink will review availability and fit before any placement is confirmed.</p>
-        </div>
-        <form id="advertiseForm" class="advertise-form" novalidate>
-          <input id="businessName" placeholder="Business / organization name" required>
-          <input id="contactName" placeholder="Contact name" required>
-          <input id="advertiseEmail" type="email" placeholder="Email address" required>
-          <input id="phone" placeholder="Phone (optional)">
-          <input id="businessType" placeholder="Business or organization type">
-          <select id="advertiseIsland"><option value="Oahu">Oʻahu</option><option value="Maui">Maui</option><option value="Hawaii Island">Hawaiʻi Island</option><option value="Kauai">Kauaʻi</option><option value="Molokai">Molokaʻi</option><option value="Lanai">Lānaʻi</option><option value="Statewide">Statewide / Multiple islands</option><option value="Other">Other</option></select>
-          <input id="businessWebsite" class="full" placeholder="Website or social page (optional)">
-          <select id="interest" required><option value="">Select advertising interest</option><option>Local Business Spotlight</option><option>Newsletter Sponsor</option><option>Sponsored Feature</option><option>Event Promotion</option><option>Jobs & Opportunities</option><option>Founding Partner</option><option>Not sure — recommend for me</option></select>
-          <select id="budgetRange"><option value="Not specified">Budget range (optional)</option><option>Under $250</option><option>$250–$500</option><option>$500–$1,000</option><option>$1,000–$2,500</option><option>$2,500+</option></select>
-          <textarea id="adMessage" class="full" rows="6" placeholder="Tell us what you want to promote, your preferred dates, and your goal."></textarea>
-          <label class="consent full"><input id="adConsent" type="checkbox" required><span>I agree that PinoyLink Hawaiʻi may contact me about this advertising or partnership inquiry.</span></label>
-          <button id="advertiseSubmit" class="subscribe-submit full" type="submit">Send advertising inquiry</button>
-          <div id="advertiseStatus" class="form-status full" role="status" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
+    <section id="options" class="section"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Advertising opportunities</div><h2>Choose the right placement.</h2></div><p class="muted partner-note">Pricing is quoted based on placement, duration, creative needs and availability. No reach or performance guarantees are fabricated.</p></div><div class="partner-grid"><article class="partner-option"><span>01</span><h3>Local Business Spotlight</h3><p>Premium business card placement on PinoyLink with business name, category, location, offer and website or contact CTA.</p></article><article class="partner-option"><span>02</span><h3>Newsletter Sponsor</h3><p>Clearly labeled sponsor placement inside an approved PinoyLink Daily edition sent to consenting subscribers.</p></article><article class="partner-option"><span>03</span><h3>Sponsored Feature</h3><p>A clearly labeled business or organization feature written separately from independent newsroom coverage.</p></article><article class="partner-option"><span>04</span><h3>Event Promotion</h3><p>Community event, church event, cultural activity or nonprofit announcement with verified details and organizer contact.</p></article><article class="partner-option"><span>05</span><h3>Jobs & Opportunities</h3><p>Promote legitimate openings, recruiting events, professional services or business opportunities to local readers.</p></article><article class="partner-option"><span>06</span><h3>Founding Partner</h3><p>Longer-term multi-placement partnership combining website, newsletter and community visibility, subject to editorial safeguards.</p></article></div></div></section>
+    <section class="section band"><div class="wrap desk-grid"><div><div class="eyebrow">Editorial trust</div><h2>Advertising stays clearly labeled.</h2><p class="muted">Sponsors do not control independent newsroom coverage. Paid placements are identified as Sponsored, Partner, Advertisement or Business Spotlight so readers can tell commercial content from reporting.</p></div><div class="feature-panel"><b>Not accepted</b><p>Misleading claims, illegal offers, deceptive financial promises, unsafe products, political persuasion disguised as news, or campaigns that conflict with PinoyLink editorial and community safety standards.</p></div></div></section>
+    <section id="inquiry" class="section"><div class="wrap inquiry-layout"><div><div class="eyebrow">Advertiser inquiry</div><h2>Tell us what you want to promote.</h2><p class="muted">This is an inquiry, not a purchase. PinoyLink will review availability and fit before any placement is confirmed.</p></div><form id="advertiseForm" class="advertise-form" novalidate><input id="businessName" placeholder="Business / organization name" required><input id="contactName" placeholder="Contact name" required><input id="advertiseEmail" type="email" placeholder="Email address" required><input id="phone" placeholder="Phone (optional)"><input id="businessType" placeholder="Business or organization type"><select id="advertiseIsland"><option value="Oahu">Oʻahu</option><option value="Maui">Maui</option><option value="Hawaii Island">Hawaiʻi Island</option><option value="Kauai">Kauaʻi</option><option value="Molokai">Molokaʻi</option><option value="Lanai">Lānaʻi</option><option value="Statewide">Statewide / Multiple islands</option><option value="Other">Other</option></select><input id="businessWebsite" class="full" placeholder="Website or social page (optional)"><select id="interest" required><option value="">Select advertising interest</option><option>Local Business Spotlight</option><option>Newsletter Sponsor</option><option>Sponsored Feature</option><option>Event Promotion</option><option>Jobs & Opportunities</option><option>Founding Partner</option><option>Not sure — recommend for me</option></select><select id="budgetRange"><option value="Not specified">Budget range (optional)</option><option>Under $250</option><option>$250–$500</option><option>$500–$1,000</option><option>$1,000–$2,500</option><option>$2,500+</option></select><textarea id="adMessage" class="full" rows="6" placeholder="Tell us what you want to promote, your preferred dates, and your goal."></textarea><label class="consent full"><input id="adConsent" type="checkbox" required><span>I agree that PinoyLink Hawaiʻi may contact me about this advertising or partnership inquiry.</span></label><button id="advertiseSubmit" class="subscribe-submit full" type="submit">Send advertising inquiry</button><div id="advertiseStatus" class="form-status full" role="status" aria-live="polite"></div></form></div></section>
   </main>
   <footer><div class="wrap footer-wrap"><div><div class="brand">Pinoy<span>Link</span> Hawaiʻi</div><small>Your Bridge Between Hawaiʻi and Home.</small></div><small>Source-first • Community-first • Mobile-first</small></div></footer>
-  <script src="/advertise.js?v=1" defer></script>
+  <script src="/advertise.js?v=2" defer></script>
 </body>
 </html>
