@@ -1,0 +1,29 @@
+const $=id=>document.getElementById(id);const esc=v=>String(v??'').replace(/[&<>'\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','\"':'&quot;'}[c]));
+function listRows(data){if(Array.isArray(data))return data;if(Array.isArray(data?.records))return data.records;if(Array.isArray(data?.data))return data.data;if(Array.isArray(data?.items))return data.items;return []}
+function payload(r){return r?.payload||r?.data||r||{}}
+async function get(url,token,mode='bearer'){const headers=mode==='x'?{'x-admin-token':token}:{authorization:`Bearer ${token}`};const r=await fetch(url,{headers,cache:'no-store'});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||`${url} failed`);return d}
+function actionRow(dot,title,detail,href,label){return `<div class="action"><i class="dot ${dot}"></i><div><strong>${esc(title)}</strong><small>${esc(detail)}</small></div>${href?`<a href="${href}">${esc(label||'Open')} →</a>`:''}</div>`}
+function renderEmpty(id,text){$(id).innerHTML=`<p class="muted">${esc(text)}</p>`}
+async function load(){const token=$('adminToken').value.trim();if(!token)return;sessionStorage.setItem('pinoylink_admin_token',token);$('opsStatus').textContent='Refreshing operations…';const results=await Promise.allSettled([get('/api/admin-newsroom',token),get('/api/admin-advertisers',token),get('/api/admin-directory',token,'x'),get('/api/admin-health',token,'x')]);
+let editorial=[],sales=[],directory=[],health=null,errors=[];
+if(results[0].status==='fulfilled')editorial=listRows(results[0].value).map(payload);else errors.push('newsroom');
+if(results[1].status==='fulfilled')sales=listRows(results[1].value).map(payload);else errors.push('advertisers');
+if(results[2].status==='fulfilled')directory=listRows(results[2].value).map(payload);else errors.push('directory');
+if(results[3].status==='fulfilled')health=results[3].value;else errors.push('health');
+const editorialPending=editorial.filter(x=>['manual_review','needs_review','held','pending'].includes(String(x.review_status||x.status||'').toLowerCase())||x.manual_review_required===true);
+const salesPending=sales.filter(x=>{const s=String(x.status||'active').toLowerCase(),stage=String(x.stage||'').toLowerCase();return s==='active'&&!['completed','closed','lost'].includes(stage)});
+const dirPending=directory.filter(x=>['pending','new','needs_review',''].includes(String(x.review_status||'').toLowerCase())&&String(x.status||'active').toLowerCase()!=='inactive');
+const systemIssues=health?[(health.public_ok===false),(health.config_ok===false),...(health.checks||[]).map(c=>c.ok===false)].filter(Boolean).length:0;
+$('mEditorial').textContent=editorialPending.length;$('mSales').textContent=salesPending.length;$('mDirectory').textContent=dirPending.length;$('mSystem').textContent=systemIssues+(errors.length?errors.length:0);
+const priority=[];
+editorialPending.slice(0,4).forEach(x=>priority.push(actionRow('red',x.headline||x.title||'Editorial review required',`${x.desk||x.category||'Newsroom'} • ${x.review_status||x.status||'pending'}`,'/admin-newsroom','Review')));
+salesPending.filter(x=>String(x.priority||'').toUpperCase()==='HOT').slice(0,3).forEach(x=>priority.push(actionRow('red',x.business_name||'Hot advertiser lead',`${x.interest||'Advertiser'} • ${x.next_action||'Follow up'}`,'/admin-advertisers','Follow up')));
+dirPending.slice(0,3).forEach(x=>priority.push(actionRow('',x.business_name||'Directory submission',`${x.category||'Listing'} • ${x.island||''}`,'/admin-directory','Review')));
+if(health&&!health.ok)priority.push(actionRow('red','System health needs attention','One or more public routes or required configuration checks failed.','/admin-health','Inspect'));
+$('priorityQueue').innerHTML=priority.length?priority.join(''):'<p class="muted">No high-priority action is currently visible from the connected dashboards.</p>';
+$('editorialQueue').innerHTML=editorialPending.length?editorialPending.slice(0,6).map(x=>actionRow('',x.headline||x.title||'Review item',`${x.review_status||x.status||'pending'} • ${x.source_name||x.desk||''}`,'/admin-newsroom','Open')).join(''):'<p class="muted">No editorial review items visible.</p>';
+$('salesQueue').innerHTML=salesPending.length?salesPending.slice(0,6).map(x=>actionRow(String(x.priority||'').toUpperCase()==='HOT'?'red':'',x.business_name||'Advertiser',`${x.priority||'STANDARD'} • ${x.stage||'NEW'} • ${x.next_action||'Follow up'}`,'/admin-advertisers','Open')).join(''):'<p class="muted">No advertiser follow-up items visible.</p>';
+$('directoryQueue').innerHTML=dirPending.length?dirPending.slice(0,6).map(x=>actionRow('',x.business_name||'Listing submission',`${x.category||'Directory'} • ${x.island||''}`,'/admin-directory','Review')).join(''):'<p class="muted">No directory review items visible.</p>';
+if(health){const parts=[];(health.checks||[]).forEach(c=>{if(!c.ok)parts.push(actionRow('red',`${c.name} unavailable`,`HTTP ${c.status||0} • ${c.latency_ms||0} ms`,'/admin-health','Inspect'))});Object.entries(health.env||{}).forEach(([k,v])=>{if(!v)parts.push(actionRow('',`${k} missing`,'Required configuration is not set in the current deployment.','/admin-health','Inspect'))});$('healthSummary').innerHTML=parts.length?parts.join(''):actionRow('green','Core checks passed','Public routes and required configuration reported healthy.','/admin-health','Details')}else renderEmpty('healthSummary','Health data could not be loaded.');
+$('opsStatus').textContent=errors.length?`Loaded with ${errors.length} unavailable data source${errors.length===1?'':'s'}: ${errors.join(', ')}.`:'Operations inbox refreshed.'}
+$('loadOps').addEventListener('click',load);const saved=sessionStorage.getItem('pinoylink_admin_token');if(saved){$('adminToken').value=saved;load()}
