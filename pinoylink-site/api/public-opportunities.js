@@ -1,0 +1,13 @@
+const CFG={events:{url:'https://api.3minapi.com/api/v1/data/1tcjl4qt6xmqfs9hmxnb0',key:'THREEMIN_EVENTS_PUBLIC_READ_KEY'},jobs:{url:'https://api.3minapi.com/api/v1/data/e8g52rjaw680jivk1dmh8',key:'THREEMIN_JOBS_PUBLIC_READ_KEY'}};
+async function j(r){return r.json().catch(()=>({}))}
+function safeEvent(r){return {event_id:r.event_id,title:r.title,description:r.description,category:r.category,organizer:r.organizer,island:r.island,city:r.city,venue:r.venue,public_address:r.public_address,start_at:r.start_at,end_at:r.end_at,cost_text:r.cost_text,registration_url:r.registration_url,public_contact:r.public_contact,published_at:r.published_at}}
+function safeJob(r){return {job_id:r.job_id,title:r.title,employer:r.employer,description:r.description,category:r.category,employment_type:r.employment_type,island:r.island,city:r.city,work_location:r.work_location,pay_range:r.pay_range,application_url:r.application_url,public_contact:r.public_contact,application_deadline:r.application_deadline,published_at:r.published_at}}
+export default async function handler(req,res){
+  res.setHeader('Cache-Control','public, max-age=60, stale-while-revalidate=300');if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});
+  const type=String(req.query?.type||'events');const c=CFG[type];if(!c)return res.status(400).json({error:'Invalid type'});const key=process.env[c.key];if(!key)return res.status(503).json({error:'Listings are not configured yet.'});
+  const q=String(req.query?.q||'').trim();const cursor=String(req.query?.cursor||'');const u=new URL(c.url);u.searchParams.set('limit','30');if(cursor)u.searchParams.set('cursor',cursor);if(q.length>=3)u.pathname+='/search',u.searchParams.set('q',q);
+  try{const r=await fetch(u,{headers:{authorization:`Bearer ${key}`},cache:'no-store'});const d=await j(r);if(!r.ok)return res.status(502).json({error:'Unable to load listings.'});const raw=d?.data||[];const now=Date.now();const active=raw.filter(x=>x&&x.public_status==='active'&&x.status==='active'&&['published','verified'].includes(String(x.review_status||'')));
+    const rows=active.filter(x=>{if(type==='events'){const end=x.end_at||x.start_at;return !end||isNaN(Date.parse(end))||Date.parse(end)>=now-86400000}const dl=x.application_deadline;return !dl||isNaN(Date.parse(dl))||Date.parse(dl)>=now-86400000}).map(type==='events'?safeEvent:safeJob);
+    rows.sort((a,b)=>type==='events'?(Date.parse(a.start_at||'9999-12-31')-Date.parse(b.start_at||'9999-12-31')):(Date.parse(b.published_at||0)-Date.parse(a.published_at||0)));
+    return res.status(200).json({ok:true,type,rows,pagination:d?.pagination||{}})}catch(e){console.error(e);return res.status(502).json({error:'Listings service is temporarily unavailable.'})}
+}
