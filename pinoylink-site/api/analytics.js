@@ -19,6 +19,10 @@ export default async function handler(req,res){
     referrer_host:clean(b.referrer_host,180),
     device_type:clean(b.device_type,40),
     session_id:clean(b.session_id,120),
+    campaign_id:clean(b.campaign_id,120),
+    placement:clean(b.placement,120),
+    advertiser:clean(b.advertiser,160),
+    outbound_url:clean(b.outbound_url,500),
     occurred_at:new Date().toISOString(),
     status:'accepted'
   };
