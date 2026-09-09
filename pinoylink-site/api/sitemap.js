@@ -13,6 +13,7 @@ export default async function handler(req,res){
     url(`${ORIGIN}/directory`,{changefreq:'weekly',priority:'0.8'}),
     url(`${ORIGIN}/directory-submit`,{changefreq:'monthly',priority:'0.5'}),
     url(`${ORIGIN}/advertise`,{changefreq:'monthly',priority:'0.7'}),
+    url(`${ORIGIN}/media-kit`,{changefreq:'monthly',priority:'0.7'}),
     url(`${ORIGIN}/booking`,{changefreq:'monthly',priority:'0.6'}),
     url(`${ORIGIN}/preferences`,{changefreq:'monthly',priority:'0.4'})
   ];
