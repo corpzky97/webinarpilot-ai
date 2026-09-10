@@ -1,3 +1,4 @@
+import { isAdminRequest } from './_admin-session.js';
 const DATASETS={
   subscribers:{url:'https://api.3minapi.com/api/v1/data/1ab2x5w26lthxsswkogmp',env:'THREEMIN_SUBSCRIBERS_READ_KEY'},
   newsroom:{url:'https://api.3minapi.com/api/v1/data/7bery6as68e75y5qez33a',env:'THREEMIN_NEWSROOM_READ_KEY'},
@@ -8,8 +9,7 @@ const DATASETS={
 function rowsFrom(data){if(Array.isArray(data))return data;if(Array.isArray(data?.records))return data.records;if(Array.isArray(data?.data))return data.data;if(Array.isArray(data?.items))return data.items;return []}
 export default async function handler(req,res){
   if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});
-  const token=String(req.headers['x-admin-token']||'');
-  if(!process.env.PINOYLINK_ADMIN_TOKEN||token!==process.env.PINOYLINK_ADMIN_TOKEN)return res.status(401).json({error:'Unauthorized'});
+  if(!isAdminRequest(req))return res.status(401).json({error:'Unauthorized'});
   const name=String(req.query?.dataset||'').toLowerCase();const cfg=DATASETS[name];
   if(!cfg)return res.status(400).json({error:'Unknown dataset'});
   const key=process.env[cfg.env];if(!key)return res.status(503).json({error:`${cfg.env} is not configured.`});
