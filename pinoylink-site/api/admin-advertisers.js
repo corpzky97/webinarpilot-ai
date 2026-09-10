@@ -1,11 +1,11 @@
+import { isAdminRequest } from './_admin-session.js';
+
 const ENDPOINT='https://api.3minapi.com/api/v1/data/asjcr1qjg0xuze3ng2q3q';
 export default async function handler(req,res){
   if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});
-  const adminToken=process.env.PINOYLINK_ADMIN_TOKEN;
   const readKey=process.env.THREEMIN_AD_PIPELINE_READ_KEY;
-  if(!adminToken||!readKey)return res.status(503).json({error:'Admin pipeline is not configured yet.'});
-  const auth=String(req.headers.authorization||'');
-  if(auth!==`Bearer ${adminToken}`)return res.status(401).json({error:'Invalid admin token.'});
+  if(!readKey)return res.status(503).json({error:'Admin pipeline is not configured yet.'});
+  if(!isAdminRequest(req))return res.status(401).json({error:'Admin sign-in required.'});
   const cursor=String(req.query.cursor||'').trim();
   const url=new URL(ENDPOINT);
   url.searchParams.set('limit','30');
