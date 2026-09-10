@@ -13,17 +13,13 @@
   <link rel="stylesheet" href="/admin-advertisers.css?v=1" />
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/">Pinoy<span>Link</span> Hawaiʻi</a><nav class="nav"><a href="/">Home</a><a href="/advertise">Advertise</a></nav><span class="pill">Private CRM</span></div></header>
+  <header class="topbar"><div class="wrap nav-wrap"><a class="brand" href="/admin">Pinoy<span>Link</span> Admin</a><nav class="nav"><a href="/admin">Control Center</a><a href="/advertise">Advertise</a></nav><span class="pill">Private CRM</span></div></header>
   <main class="section"><div class="wrap">
     <div class="eyebrow">Private advertiser operations</div>
     <h1 style="font-size:clamp(2.8rem,6vw,5rem);margin-bottom:18px">Advertiser <span>Pipeline</span></h1>
-    <p class="muted" style="max-width:760px">Review advertiser inquiries, priority and current sales stage. This page requires your private admin token and never exposes the 3Min API key to the browser.</p>
+    <p class="muted" style="max-width:760px">Review advertiser inquiries, priority and current sales stage using your secure PinoyLink Admin session. No admin token is required on this device.</p>
 
-    <section id="adminGate" class="admin-gate">
-      <label for="adminToken">Admin token</label>
-      <div class="admin-login-row"><input id="adminToken" type="password" autocomplete="current-password" placeholder="Enter private admin token"><button id="unlockAdmin" class="subscribe-submit" type="button">Open pipeline</button></div>
-      <div id="adminStatus" class="form-status" role="status" aria-live="polite"></div>
-    </section>
+    <div id="adminStatus" class="form-status" role="status" aria-live="polite">Checking secure admin session…</div>
 
     <section id="pipelinePanel" hidden>
       <div class="pipeline-toolbar"><div><b id="pipelineCount">0 leads</b><span id="pipelineUpdated">Not loaded</span></div><div class="pipeline-actions"><select id="stageFilter"><option value="">All stages</option><option>NEW</option><option>CONTACTED</option><option>QUALIFIED</option><option>PROPOSAL SENT</option><option>APPROVED</option><option>ACTIVE CAMPAIGN</option><option>COMPLETED</option><option>CLOSED</option></select><select id="priorityFilter"><option value="">All priorities</option><option>HOT</option><option>WARM</option><option>STANDARD</option></select><button id="refreshPipeline" class="share-btn" type="button">Refresh</button></div></div>
@@ -31,6 +27,6 @@
       <button id="loadMorePipeline" class="cta secondary" type="button" hidden>Load more</button>
     </section>
   </div></main>
-  <script src="/admin-advertisers.js?v=1" defer></script>
+  <script src="/admin-advertisers.js?v=2" defer></script>
 </body>
 </html>
