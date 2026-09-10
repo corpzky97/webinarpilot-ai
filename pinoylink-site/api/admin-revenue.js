@@ -1,3 +1,4 @@
+import { isAdminRequest } from './_admin-session.js';
 const SOURCES={
   pipeline:{url:'https://api.3minapi.com/api/v1/data/asjcr1qjg0xuze3ng2q3q',env:'THREEMIN_AD_PIPELINE_READ_KEY'},
   bookings:{url:'https://api.3minapi.com/api/v1/data/afmf9zu771p4xlq8xvrta',env:'THREEMIN_AD_BOOKINGS_READ_KEY'},
@@ -5,11 +6,10 @@ const SOURCES={
 };
 function rowsFrom(d){if(Array.isArray(d))return d;if(Array.isArray(d?.data?.data))return d.data.data;if(Array.isArray(d?.data))return d.data;if(Array.isArray(d?.records))return d.records;return []}
 function payload(r){return r?.payload||r?.data||r||{}}
-async function getList(source){const key=process.env[source.env];if(!key)return {configured:false,rows:[]};const u=new URL(source.url);u.searchParams.set('limit','30');const r=await fetch(u,{headers:{authorization:`Bearer ${key}`}});if(!r.ok)throw new Error(`${source.env} upstream ${r.status}`);const d=await r.json();return {configured:true,rows:rowsFrom(d).map(x=>({...payload(x),_record_id:x?.id||x?.record_id||payload(x)?.id||''}))}}
+async function getList(source){const key=process.env[source.env];if(!key)return {configured:false,rows:[]};const u=new URL(source.url);u.searchParams.set('limit','30');const r=await fetch(u,{headers:{authorization:`Bearer ${key}`},cache:'no-store'});if(!r.ok)throw new Error(`${source.env} upstream ${r.status}`);const d=await r.json();return {configured:true,rows:rowsFrom(d).map(x=>({...payload(x),_record_id:x?.id||x?.record_id||payload(x)?.id||''}))}}
 export default async function handler(req,res){
   if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});
-  const expected=process.env.PINOYLINK_ADMIN_TOKEN;const supplied=String(req.headers['x-admin-token']||'');
-  if(!expected||supplied!==expected)return res.status(401).json({error:'Unauthorized'});
+  if(!isAdminRequest(req))return res.status(401).json({error:'Unauthorized'});
   try{
     const [pipeline,bookings,payments]=await Promise.all(Object.values(SOURCES).map(getList));
     const active=pipeline.rows.filter(r=>String(r.status||'').toLowerCase()!=='inactive');
