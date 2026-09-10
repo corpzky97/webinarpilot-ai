@@ -1,5 +1,15 @@
 (()=>{
   if(document.querySelector('.site-history-nav'))return;
+  // A disclosure menu keeps every public section reachable on phones and tablets.
+  const header=document.querySelector('.nav-wrap');
+  if(header){
+    const menu=document.createElement('details');menu.className='mobile-menu';
+    menu.innerHTML='<summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobile sections"><a href="/#latest">Latest stories</a><a href="/#traffic">Traffic</a><a href="/archive?desk=Hawaiʻi">Hawaiʻi</a><a href="/archive?desk=Philippines">Philippines</a><a href="/archive?desk=Immigration">Immigration</a><a href="/archive?desk=Community">Community</a><a href="/events">Events</a><a href="/jobs">Jobs</a><a href="/lost-found">Lost &amp; Found</a><a href="/memorials">Memorials</a><a href="/archive">News archive</a><a href="/directory">Business directory</a><a href="/advertise">Advertise</a><a href="/#subscribe">Subscribe free</a></nav>';
+    header.appendChild(menu);
+    menu.addEventListener('keydown',event=>{if(event.key==='Escape'){menu.open=false;menu.querySelector('summary').focus();}});
+    menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.open=false;}));
+    document.addEventListener('click',event=>{if(!menu.contains(event.target))menu.open=false;});
+  }
   const q=new URLSearchParams(location.search);
   const source=(q.get('utm_source')||q.get('source')||'site_nav').replace(/[^a-zA-Z0-9._-]/g,'').slice(0,50)||'site_nav';
   const invite=`/join?utm_source=${encodeURIComponent(source)}&utm_medium=site_nav&utm_campaign=pinoylink_referral`;
