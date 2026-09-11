@@ -1,23 +1,9 @@
 {
   "brand": "PinoyLink Hawaiʻi",
-  "backed_up_at": "2026-09-09T21:48:32-10:00",
+  "backed_up_at": "2026-09-10T19:18:10-10:00",
   "sources": {
-    "feed": {
-      "source_updated_at": "2026-09-09T18:02:00-10:00",
-      "record_count": 2,
-      "story_count": 2,
-      "status": "ok"
-    },
-    "archive": {
-      "source_updated_at": "2026-09-09T12:00:00-10:00",
-      "record_count": 8,
-      "story_count": 8,
-      "status": "ok"
-    },
-    "directory": {
-      "source_updated_at": "2026-09-08T13:43:00-10:00",
-      "record_count": 0,
-      "status": "ok"
-    }
+    "feed": {"source_updated_at":"2026-09-10T06:05:00-10:00","record_count":2,"story_count":2,"status":"ok"},
+    "archive": {"source_updated_at":"2026-09-10T06:06:00-10:00","record_count":10,"story_count":10,"status":"snapshot_write_requires_repair"},
+    "directory": {"source_updated_at":"2026-09-08T13:43:00-10:00","record_count":0,"status":"ok"}
   }
 }
