@@ -1,7 +1,61 @@
 {
   "brand": "PinoyLink Hawaiʻi",
-  "updated_at": "2026-09-12T12:01:00-10:00",
+  "updated_at": "2026-09-12T18:01:00-10:00",
   "stories": [
+    {
+      "desk": "Lānaʻi",
+      "headline": "Kaumālapaʻu Harbor to begin limited operations Sunday for essential barge delivery",
+      "summary": "HDOT says the Lānaʻi harbor will accept a special interisland barge on September 13 while access remains restricted and land-side repairs continue.",
+      "why_it_matters": "Kaumālapaʻu is Lānaʻi’s primary commercial cargo facility, so limited reopening supports delivery of goods and fuel while keeping the damaged work area controlled.",
+      "source_name": "Hawaiʻi Department of Transportation",
+      "source_url": "https://hidot.hawaii.gov/blog/2026/09/12/limited-access-to-kaumalapau-harbor-sunday-sept-13/",
+      "published_at": "2026-09-12T18:00:00-10:00",
+      "slug": "lanai-kaumalapau-harbor-limited-operations-september-13-2026",
+      "visual_theme": "harbor-recovery",
+      "visual_label": "LĀNAʻI • HARBOR UPDATE",
+      "body": [
+        "The Hawaiʻi Department of Transportation says limited operations will begin at Kaumālapaʻu Harbor on Lānaʻi on Sunday, September 13, as crews continue repairs following Hurricane Lowell.",
+        "HDOT says underwater hazards will be removed from the waterway in time for an incoming barge. Young Brothers is scheduled to send a special interisland shipment carrying goods and fuel to Lānaʻi.",
+        "The harbor will remain closed to the public and to anyone who is not essential harbor personnel. HDOT says the restriction is needed so barge offloading and paving work can proceed safely in the limited space, with Maui Police assisting access control.",
+        "Limited operations do not mean all repairs are complete. Land-side work will continue for the coming weeks, including repairs around the pier apron. Residents should not enter the harbor area to watch the barge or inspect recovery work.",
+        "The practical takeaway for Lānaʻi residents is that an essential supply shipment is scheduled, but normal public access has not resumed. Future operating changes should be confirmed through HDOT’s official weather and transportation updates."
+      ],
+      "disclaimer": "AI-generated illustration; conceptual editorial imagery, not a photograph of Kaumālapaʻu Harbor or the scheduled barge.",
+      "image_url": "https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/images/lanai-harbor-limited-operations-ai.jpg",
+      "image_alt": "AI-generated conceptual illustration of an interisland cargo barge approaching a Hawaiian harbor during repair operations.",
+      "image_source_name": "OpenAI",
+      "image_source_url": "",
+      "image_credit": "AI-generated illustration by OpenAI for PinoyLink Hawaiʻi; conceptual, not documentary.",
+      "image_type": "ai_illustration",
+      "image_review_status": "matched_verified"
+    },
+    {
+      "desk": "Kauaʻi",
+      "headline": "Kauaʻi asks residents to conserve water while pumps run on emergency generators",
+      "summary": "The Kauaʻi Department of Water says its islandwide conservation notice remains active and asks customers to limit use to essential needs to help prevent an outage.",
+      "why_it_matters": "Water systems have been restored, but emergency-powered pumping remains vulnerable during hurricane recovery; reducing demand helps preserve cooking, drinking, hygiene and sanitation service.",
+      "source_name": "Kauaʻi Department of Water",
+      "source_url": "https://www.kauaiwater.org/urgent-reminder-water-conservation-in-effect-for-kaua%CA%BBi/",
+      "published_at": "2026-09-12T18:00:00-10:00",
+      "slug": "kauai-water-conservation-emergency-generators-september-12-2026",
+      "visual_theme": "water-conservation",
+      "visual_label": "KAUAʻI • WATER SERVICE",
+      "body": [
+        "The Kauaʻi Department of Water is reminding customers that an islandwide water-conservation notice remains in effect as recovery from Hurricane Lowell continues. The department says water pumps are operating on emergency-powered generators and conserving water will help reduce the risk of a service outage.",
+        "Customers are asked to limit water use to essential needs, including cooking, drinking, personal hygiene, laundry and sanitation. The department also recommends turning off equipment that draws water automatically, such as irrigation systems and ice machines.",
+        "The County of Kauaʻi reported Saturday that the island’s water systems had been restored, but the conservation request remained in place. That means the notice is a demand-management precaution while generator-dependent pumping and broader infrastructure recovery continue.",
+        "The conservation notice is separate from any location-specific boil-water advisory. Residents should check the Department of Water’s service-outage page for the latest instructions affecting their own neighborhood rather than assume that an islandwide conservation request changes water-quality guidance.",
+        "The department says the notice will remain active until it is formally lifted. Water-service outages or leaks can be reported to 808-245-5444. Residents should continue following official county and Department of Water updates as power and pumping conditions change."
+      ],
+      "disclaimer": "AI-generated illustration; conceptual editorial imagery, not a photograph of Kauaʻi water facilities or current conditions.",
+      "image_url": "https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/images/kauai-water-conservation-ai.jpg",
+      "image_alt": "AI-generated conceptual illustration of a water tap, storage tanks and emergency generator representing Kauaʻi water conservation.",
+      "image_source_name": "OpenAI",
+      "image_source_url": "",
+      "image_credit": "AI-generated illustration by OpenAI for PinoyLink Hawaiʻi; conceptual, not documentary.",
+      "image_type": "ai_illustration",
+      "image_review_status": "matched_verified"
+    },
     {
       "desk": "Philippines",
       "headline": "PAGASA: Localized thunderstorms possible across the Philippines on September 13",
