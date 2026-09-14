@@ -1,7 +1,35 @@
 {
   "brand": "PinoyLink Hawaiʻi",
-  "updated_at": "2026-09-13T18:01:00-10:00",
+  "updated_at": "2026-09-14T06:01:00-10:00",
   "stories": [
+    {
+      "desk": "Money & Work",
+      "headline": "September 15 estimated-tax deadline approaches for many self-employed taxpayers",
+      "summary": "The IRS lists September 15 as the third 2026 estimated-tax payment deadline for calendar-year individuals.",
+      "why_it_matters": "Freelancers, gig workers, sole proprietors and others whose income is not fully covered by withholding may need to review their federal estimated-tax obligation before Tuesday.",
+      "source_name": "Internal Revenue Service",
+      "source_url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+      "source_published_at": "2026-02-12",
+      "slug": "federal-estimated-tax-deadline-september-15-2026",
+      "visual_theme": "small-business-tax-deadline",
+      "visual_label": "MONEY & WORK • SEP. 15",
+      "body": [
+        "The third federal estimated-tax payment for 2026 is due Tuesday, September 15, for calendar-year individuals who are required to make quarterly payments, according to the Internal Revenue Service’s current Form 1040-ES instructions.",
+        "Estimated tax commonly applies when income is not fully covered by withholding. The IRS lists self-employment and gig-economy earnings, interest, dividends, rent and certain other taxable income among the situations that can create an estimated-tax obligation.",
+        "Individuals, including sole proprietors, partners and S corporation shareholders, generally may need estimated payments when they expect to owe at least $1,000 after subtracting withholding and refundable credits. The calculation also depends on how current-year withholding compares with current- and prior-year tax, and special rules can apply to higher-income taxpayers, farmers and fishers.",
+        "The IRS says taxpayers can use the 2026 Form 1040-ES worksheet to recalculate payments when income or circumstances change. Payment options include an IRS online account, Direct Pay, EFTPS, phone, mobile device or mail; mailed payments are subject to federal postmark rules.",
+        "This is general deadline information, not individualized tax advice. Hawaiʻi residents should review the official IRS form and payment guidance or consult a qualified tax professional about their own filing status, income, withholding, disaster-related circumstances and any separate Hawaiʻi estimated-tax requirements."
+      ],
+      "disclaimer": "AI-generated illustration; conceptual editorial imagery, not documentary photography. General deadline information only, not individualized tax advice.",
+      "image_url": "https://raw.githubusercontent.com/corpzky97/webinarpilot-ai/main/pinoylink/images/federal-estimated-tax-deadline-september-15-2026-ai.png",
+      "image_alt": "AI-generated conceptual illustration of a Filipino Hawaiʻi small-business owner reviewing paperwork beside a calendar marked September 15.",
+      "published_at": "2026-09-14T06:00:00-10:00",
+      "image_source_name": "OpenAI",
+      "image_source_url": "",
+      "image_credit": "AI-generated illustration by OpenAI for PinoyLink Hawaiʻi; conceptual, not documentary.",
+      "image_type": "ai_illustration",
+      "image_review_status": "matched_verified"
+    },
     {
       "desk": "Kauaʻi",
       "headline": "Kauaʻi recovery reaches 82% power restoration as schools and transit resume",
